@@ -25,7 +25,7 @@ v24.20.0
 | [evidence/](evidence/) | API/өгөгдлийн согогийн `curl -i` бүтэн гаралт |
 | `tools/capture.js`, `tools/evidence.sh` | Тайлангийн алхмыг шинээр асаасан апп дээр дахин гүйцэтгэж скриншот (Edge headless, CDP) ба `curl -i` нотолгоог дахин үүсгэх скриптүүд |
 
-Charter-ийн commit (14:32:08) нь session-ий анхны хүсэлтээс (`Date: … 06:32:33 GMT` = 14:32:33, [evidence](session-report.md)) өмнө хийгдэж GitHub руу push хийгдсэн.
+Charter-ийг 14:32:08-д commit хийж GitHub руу push хийсний дараа аппыг асааж session эхэлсэн (тэмдэглэлийн эхний мөр 14:32); session report 14:35:50-д, bug report-ууд түүний дараа commit хийгдсэн (`git log`).
 
 ## Олдсон согогууд
 
