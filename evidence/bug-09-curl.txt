@@ -1,0 +1,41 @@
+# BUG-09: node app.js шинээр асаасан
+$ curl -s -i localhost:3000/api/books?q=Clean
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Wed, 25 Nov 2026 06:41:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+[{"id":2,"title":"Clean Code","author":"Robert C. Martin","year":2008}]
+
+$ curl -s -i localhost:3000/api/books?q=clean
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Wed, 25 Nov 2026 06:41:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+[]
+
+$ curl -s -i localhost:3000/api/books?q=Martin
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Wed, 25 Nov 2026 06:41:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+[{"id":2,"title":"Clean Code","author":"Robert C. Martin","year":2008}]
+
+$ curl -s -i localhost:3000/api/books?q=martin
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Wed, 25 Nov 2026 06:41:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+[]
+

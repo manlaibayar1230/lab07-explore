@@ -1,0 +1,31 @@
+# BUG-12: node app.js шинээр асаасан
+$ curl -s -i -X POST localhost:3000/api/books -H 'Content-Type: application/json' -d '{"title": "abc", bad json'
+HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Wed, 25 Nov 2026 06:41:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+{"result":"OK"}
+
+$ curl -s -i -X POST localhost:3000/api/books -d 'буруу оролт'
+HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Wed, 25 Nov 2026 06:41:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+{"result":"OK"}
+
+$ curl -s -i localhost:3000/api/books
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Wed, 25 Nov 2026 06:41:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+[{"id":1,"title":"Тунгалаг Тамир","author":"Ч.Лодойдамба","year":1971},{"id":2,"title":"Clean Code","author":"Robert C. Martin","year":2008},{"id":3,"title":"The Pragmatic Programmer","author":"D.Thomas & A.Hunt","year":1999}]
+

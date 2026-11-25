@@ -1,0 +1,51 @@
+# BUG-07: node app.js шинээр асаасан
+$ curl -s -i -X POST localhost:3000/api/books -H 'Content-Type: application/json' -d '{"title":"Он 999","author":"Тест","year":"999"}'
+HTTP/1.1 201 Created
+Content-Type: application/json
+Date: Wed, 25 Nov 2026 06:41:31 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+{"result":"OK","id":4}
+
+$ curl -s -i -X POST localhost:3000/api/books -H 'Content-Type: application/json' -d '{"title":"Он 2101","author":"Тест","year":"2101"}'
+HTTP/1.1 201 Created
+Content-Type: application/json
+Date: Wed, 25 Nov 2026 06:41:31 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+{"result":"OK","id":5}
+
+$ curl -s -i -X POST localhost:3000/api/books -H 'Content-Type: application/json' -d '{"title":"Он abc","author":"Тест","year":"abc"}'
+HTTP/1.1 201 Created
+Content-Type: application/json
+Date: Wed, 25 Nov 2026 06:41:31 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+{"result":"OK","id":6}
+
+$ curl -s -i -X POST localhost:3000/api/books -H 'Content-Type: application/json' -d '{"title":"Он 1999.5","author":"Тест","year":"1999.5"}'
+HTTP/1.1 201 Created
+Content-Type: application/json
+Date: Wed, 25 Nov 2026 06:41:31 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+{"result":"OK","id":7}
+
+$ curl -s -i localhost:3000/api/books
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Wed, 25 Nov 2026 06:41:31 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+[{"id":1,"title":"Тунгалаг Тамир","author":"Ч.Лодойдамба","year":1971},{"id":2,"title":"Clean Code","author":"Robert C. Martin","year":2008},{"id":3,"title":"The Pragmatic Programmer","author":"D.Thomas & A.Hunt","year":1999},{"id":4,"title":"?? 999","author":"????","year":"999"},{"id":5,"title":"?? 2101","author":"????","year":"2101"},{"id":6,"title":"?? abc","author":"????","year":"abc"},{"id":7,"title":"?? 1999.5","author":"????","year":"1999.5"}]
+
